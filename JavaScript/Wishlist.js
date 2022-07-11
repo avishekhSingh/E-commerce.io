@@ -42,7 +42,7 @@ renderWishlist();
 
 //! Adding item to cart page again.
 function addToCart(itemId){
-    const myCartItems= JSON.parse(localStorage.getItem("MY_CART"));
+    const myCartItems= JSON.parse(localStorage.getItem("MY_CART")) || [];
     const wishlist = JSON.parse(localStorage.getItem("MY_WISHLIST"));
     const selectedItem= wishlist.filter((item) => item.id == itemId);
     myCartItems.push(selectedItem[0]);
