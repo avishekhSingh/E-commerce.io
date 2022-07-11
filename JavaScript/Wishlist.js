@@ -45,7 +45,7 @@ function addToCart(itemId){
     const myCartItems= JSON.parse(localStorage.getItem("MY_CART")) || [];
     const wishlist = JSON.parse(localStorage.getItem("MY_WISHLIST"));
     const selectedItem= wishlist.filter((item) => item.id == itemId);
-    myCartItems.push(selectedItem[0]);
+    myCartItems.push({...selectedItem[0],qty:1});
     localStorage.setItem("MY_CART",JSON.stringify(myCartItems));
     const restWishlist = wishlist.filter((item) => item.id != itemId);
     localStorage.setItem("MY_WISHLIST", JSON.stringify(restWishlist));
